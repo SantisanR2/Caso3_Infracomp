@@ -30,7 +30,7 @@ public class ThreadBusqueda extends Thread{
         if (longitud == 0) {
             // Calcular el código criptográfico de hash del mensaje con la sal y compararlo con el código dado
             String mensajeEncontrado = sb.toString();
-            String codigoCriptograficoActual = encriptarSHA(sal + mensajeEncontrado, algoritmo);
+            String codigoCriptograficoActual = encriptarSHA(mensajeEncontrado + sal, algoritmo);
             if (codigoCriptograficoActual.equals(codigoCriptografico)) {
                 System.out.println("Mensaje encontrado: " + mensajeEncontrado);
                 tiempoFinal = System.nanoTime();

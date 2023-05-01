@@ -45,10 +45,10 @@ public class FuerzaBrutaSHA {
     }
 
     public static void main(String[] args) {
-        codigoCriptografico = "170327dda746b5d207d31ae407592bc1df2f093000652877b1e74993c969de29";
-        sal = "ab";
+        codigoCriptografico = "f5cc43628e040ee6acb2d1678488d1f4e0fa75488ab65e64d01587838baaac91";
+        sal = "ki";
         algoritmo = "256";
-        numThreads = 2;
+        numThreads = 1;
         encontrarMensaje();
     }
 }
