@@ -35,6 +35,7 @@ public class ThreadBusqueda extends Thread{
                 System.out.println("Mensaje encontrado: " + mensajeEncontrado);
                 tiempoFinal = System.nanoTime();
                 long tiempo = tiempoFinal - tiempoInicial;
+                System.out.println("La sal utilizada fue: " + sal);
                 System.out.println("El tiempo de decifrado fue de: " + tiempo/1e9 + "s");
                 System.exit(0); // Salir del programa cuando se encuentra una coincidencia
             }

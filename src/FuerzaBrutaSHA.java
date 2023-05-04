@@ -1,4 +1,8 @@
 import java.lang.*;
+import java.util.Scanner;
+import java.math.BigInteger;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 
 public class FuerzaBrutaSHA {
 
@@ -44,11 +48,30 @@ public class FuerzaBrutaSHA {
         System.out.println("No se encontró el mensaje");
     }
 
+    public static String encriptarSHA(String mensaje, String algoritmo){
+        MessageDigest md = null;
+        try {
+            md = MessageDigest.getInstance("SHA-"+algoritmo);
+        } catch (NoSuchAlgorithmException e) {
+            throw new RuntimeException(e);
+        }
+        md.update(mensaje.getBytes());
+        byte[] digest = md.digest();
+        String result = new BigInteger(1, digest).toString(16).toLowerCase();
+        return result;
+    }
+
     public static void main(String[] args) {
-        codigoCriptografico = "f5cc43628e040ee6acb2d1678488d1f4e0fa75488ab65e64d01587838baaac91";
-        sal = "ki";
-        algoritmo = "256";
-        numThreads = 1;
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Ingresa el la cadena que representa el hash:");
+        codigoCriptografico = sc.nextLine();
+        System.out.println("Ingresa la sal a utilizar:");
+        sal = sc.nextLine();
+        System.out.println("Ingresa el tipo de SHA a usar, 256 o 512:");
+        algoritmo = sc.nextLine();
+        System.out.println("Ingresa el número de theads a usar:");
+        numThreads = sc.nextInt();
         encontrarMensaje();
     }
 }
